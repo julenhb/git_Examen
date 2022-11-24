@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.alquilerpiso_exjdbc.PrimaryController">
+   <children>
+      <Label layoutX="286.0" layoutY="21.0" text="Inmobilarias Hernández" textFill="#202fd7">
+         <font>
+            <Font name="Franklin Gothic Demi" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="id_zona" layoutX="56.0" layoutY="82.0" text="Identificador de la zona">
+         <font>
+            <Font name="Franklin Gothic Demi" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="tipoOp" layoutX="56.0" layoutY="129.0" text="Tipo de Operación">
+         <font>
+            <Font name="Franklin Gothic Demi" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="metros" layoutX="56.0" layoutY="171.0" text="Metros cuadrados">
+         <font>
+            <Font name="Franklin Gothic Demi" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="nombreProp" layoutX="56.0" layoutY="224.0" text="Nombre del propietario">
+         <font>
+            <Font name="Franklin Gothic Demi" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="tlfCon" layoutX="56.0" layoutY="268.0" text="Teléfono de contacto">
+         <font>
+            <Font name="Franklin Gothic Demi" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="piso" layoutX="395.0" layoutY="81.0" text="Identificador de piso" textFill="#ff0f0f">
+         <font>
+            <Font name="Franklin Gothic Demi" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="res" layoutX="56.0" layoutY="343.0" text="Reservado">
+         <font>
+            <Font name="Franklin Gothic Demi" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="zonaCampo" layoutX="202.0" layoutY="76.0" />
+      <TextField fx:id="metrosCampo" layoutX="202.0" layoutY="165.0" />
+      <TextField fx:id="tlfCampo" layoutX="201.0" layoutY="262.0" />
+      <TextField fx:id="pisoCampo" layoutX="518.0" layoutY="76.0" />
+      <RadioButton fx:id="resTrue" layoutX="202.0" layoutY="341.0" mnemonicParsing="false" text="Sí">
+         <toggleGroup>
+            <ToggleGroup fx:id="resGroup" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="resFalse" layoutX="317.0" layoutY="341.0" mnemonicParsing="false" text="No" toggleGroup="$resGroup" />
+      <TableView fx:id="tabla" layoutX="50.0" layoutY="443.0" prefHeight="200.0" prefWidth="698.0">
+        <columns>
+          <TableColumn fx:id="Id_piso" prefWidth="75.0" text="Id_Piso" />
+          <TableColumn fx:id="Metros" prefWidth="75.0" text="Metros" />
+            <TableColumn fx:id="Nombre_propietario" prefWidth="152.79991149902344" text="Nombre_propietario" />
+            <TableColumn fx:id="Telefono_contacto" prefWidth="174.4000244140625" text="Teléfono_contacto" />
+            <TableColumn fx:id="Precio" prefWidth="132.79998779296875" text="Precio" />
+            <TableColumn fx:id="Reservado" prefWidth="91.199951171875" text="Reservado" />
+        </columns>
+      </TableView>
+      <Button fx:id="altaBoton" layoutX="67.0" layoutY="397.0" mnemonicParsing="false" onAction="#altaPiso" prefHeight="26.0" prefWidth="94.0" text="Alta piso" />
+      <Button fx:id="verBoton" layoutX="180.0" layoutY="397.0" mnemonicParsing="false" onAction="#verDisponibles" prefHeight="26.0" prefWidth="111.0" text="Pisos disponibles" />
+      <Button fx:id="borrarBoton" layoutX="438.0" layoutY="397.0" mnemonicParsing="false" onAction="#abrirBorrado" prefHeight="26.0" prefWidth="94.0" text="Borrar" textFill="RED" />
+      <Button fx:id="limpiar" layoutX="636.0" layoutY="397.0" mnemonicParsing="false" onAction="#limpiarCampos" prefHeight="26.0" prefWidth="111.0" text="Limpiar campos" textFill="#1bc900" />
+      <Label fx:id="precio" layoutX="56.0" layoutY="309.0" text="Precio">
+         <font>
+            <Font name="Franklin Gothic Demi" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="precioCampo" layoutX="201.0" layoutY="303.0" />
+      <TextField fx:id="nombreCampo" layoutX="201.0" layoutY="218.0" />
+      <ComboBox fx:id="opCbox" layoutX="201.0" layoutY="123.0" prefWidth="150.0" promptText="Seleccionar" />
+      <AnchorPane fx:id="ventanaBorrar" layoutX="184.0" layoutY="112.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="326.0" prefWidth="421.0" style="-fx-background-color: #FFFFFF;" visible="false">
+         <children>
+            <Label layoutX="109.0" layoutY="81.0" prefHeight="24.0" prefWidth="203.0" text="Selecciona el id del piso a eliminar" />
+            <TextField fx:id="id_Borrar" layoutX="83.0" layoutY="136.0" prefHeight="26.0" prefWidth="254.0" />
+            <Button fx:id="borrar2" layoutX="185.0" layoutY="210.0" mnemonicParsing="false" onAction="#eliminarPiso" text="DELETE" textFill="RED" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
